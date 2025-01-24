@@ -3,9 +3,9 @@ package houdini_test
 import (
 	"os"
 
+	"github.com/concourse/houdini"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-	"github.com/vito/houdini"
 
 	"testing"
 )

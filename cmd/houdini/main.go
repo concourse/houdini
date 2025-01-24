@@ -12,8 +12,8 @@ import (
 	"time"
 
 	"code.cloudfoundry.org/garden/server"
-	"code.cloudfoundry.org/lager"
-	"github.com/vito/houdini"
+	"code.cloudfoundry.org/lager/v3"
+	"github.com/concourse/houdini"
 )
 
 var listenNetwork = flag.String(
@@ -65,7 +65,7 @@ func main() {
 
 	backend := houdini.NewBackend(depot)
 
-	gardenServer := server.New(*listenNetwork, *listenAddr, *containerGraceTime, backend, logger)
+	gardenServer := server.New(*listenNetwork, *listenAddr, *containerGraceTime, 0, backend, logger)
 
 	err = gardenServer.Start()
 	if err != nil {

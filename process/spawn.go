@@ -1,3 +1,4 @@
+//go:build !windows
 // +build !windows
 
 package process
@@ -9,7 +10,7 @@ import (
 	"syscall"
 
 	"code.cloudfoundry.org/garden"
-	"github.com/vito/houdini/ptyutil"
+	"github.com/concourse/houdini/ptyutil"
 	"github.com/pkg/term/termios"
 )
 
@@ -31,8 +32,8 @@ func spawn(cmd *exec.Cmd, ttySpec *garden.TTYSpec, stdout io.Writer, stderr io.W
 		processPty = pty
 		stdin = pty
 
-		windowColumns := 80
-		windowRows := 24
+		windowColumns := uint16(80)
+		windowRows := uint16(24)
 		if ttySpec.WindowSize != nil {
 			windowColumns = ttySpec.WindowSize.Columns
 			windowRows = ttySpec.WindowSize.Rows
