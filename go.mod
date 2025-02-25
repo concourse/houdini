@@ -9,7 +9,7 @@ require (
 	code.cloudfoundry.org/lager/v3 v3.23.0
 	github.com/charlievieth/fs v0.0.3
 	github.com/concourse/go-archive v1.0.1
-	github.com/nu7hatch/gouuid v0.0.0-20131221200532-179d4d0c4d8d
+	github.com/google/uuid v1.6.0
 	github.com/onsi/ginkgo/v2 v2.22.2
 	github.com/onsi/gomega v1.36.2
 	github.com/pkg/term v1.2.0-beta.2

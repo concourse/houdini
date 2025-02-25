@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"code.cloudfoundry.org/garden"
-	"github.com/nu7hatch/gouuid"
+	"github.com/google/uuid"
 )
 
 type ProcessTracker interface {
@@ -44,7 +44,7 @@ func (t *processTracker) Run(passedID string, cmd *exec.Cmd, processIO garden.Pr
 
 	processID := passedID
 	if processID == "" {
-		uuid, err := uuid.NewV4()
+		uuid, err := uuid.NewRandom()
 		if err != nil {
 			return nil, err
 		}
